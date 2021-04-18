@@ -34,7 +34,7 @@ class App extends Component {
       <hr/>
       <div className="row">
        {this.state.cards.map(card => (
-         <Card key={card.id} nome={card.nome} prezzo={card.prezzo} immagine={card.immagine} />
+         <Card key={card.id} card={card} />
        )
        )
        }
