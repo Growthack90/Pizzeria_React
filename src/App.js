@@ -25,6 +25,11 @@ class App extends Component {
     ]
   }
 
+  handleDelete = cardId => {
+    const cards = this.state.cards.filter(card => card.id !== cardId);
+    this.setState({ cards });
+  }
+
   render() {
   return (
     <>
@@ -34,7 +39,7 @@ class App extends Component {
       <hr/>
       <div className="row">
        {this.state.cards.map(card => (
-         <Card key={card.id} card={card} />
+         <Card key={card.id} onDelete={this.handleDelete} card={card} />
        )
        )
        }
