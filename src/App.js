@@ -14,7 +14,7 @@ import pomodoroEorigano from "./images/pomodoro-e-origano.jpg";
 class App extends Component {
   state = {
     cards: [
-      {id: 0, nome: "Margherita", prezzo: 4.99, immagine: margherita },
+      {id: 0, nome: "Margherita", prezzo: 4.99, immagine: margherita, quantità: 0 },
       {id: 1, nome: "Bianca", prezzo: 3.99, immagine: bianca, quantità: 0 },
       {id: 2, nome: "Capricciosa", prezzo: 6.99, immagine: capricciosa, quantità: 0 },
       {id: 3, nome: "Focaccia", prezzo: 2.99, immagine: focaccia, quantità: 0 },
@@ -30,6 +30,14 @@ class App extends Component {
     this.setState({ cards });
   }
 
+  handleIncrement = card => {
+    const cards = [...this.state.cards];
+    const id = cards.indexOf(card);
+    cards[id] = { ...card };
+    cards[id].quantità++;
+    this.setState({ cards });
+  }
+
   render() {
   return (
     <>
@@ -39,7 +47,7 @@ class App extends Component {
       <hr/>
       <div className="row">
        {this.state.cards.map(card => (
-         <Card key={card.id} onDelete={this.handleDelete} card={card} />
+         <Card key={card.id} onDelete={this.handleDelete} onIncrement={this.handleIncrement} card={card} />
        )
        )
        }
