@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
+import margherita from "./images/margherita.jpg"
 
 class App extends Component {
   render() {
@@ -11,7 +12,7 @@ class App extends Component {
       <h1>Quale pizza preferisci?</h1>
       <hr/>
       <div className="row">
-        <Card />
+        <Card nome="Margherita" prezzo={1.99} immagine={margherita} />
         <Card />
         <Card />
         <Card />
